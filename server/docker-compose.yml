@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  web:
+    image: xataz/nginx:mainline
+    restart: always
+    environment:
+      - UID=1000
+      - GID=1000
+    volumes:
+      - ./sites-enabled:/nginx/sites-enabled
+      - ./html:/html
+    environment:
+      SSL_POLICY: "Mozilla-Modern"
+      VIRTUAL_PORT: 8080
+      VIRTUAL_HOST: ${SERVER_HOST}
+      LETSENCRYPT_HOST: ${SERVER_HOST}
+
+networks:
+  default:
+    external:
+      name: webproxy
