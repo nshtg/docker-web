@@ -32,5 +32,6 @@ exposedByDefault = false
 storage = "acme.json"
 entryPoint = "https"
 onHostRule = true
+keyType = "EC384"
 [acme.httpChallenge]
 entryPoint = "http"

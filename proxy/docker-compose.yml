@@ -2,7 +2,7 @@ version: '3'
 
 services:
   proxy:
-    image: traefik:alpine
+    image: traefik:1.7
     container_name: traefik
     restart: always
     ports:
