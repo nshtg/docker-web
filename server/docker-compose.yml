@@ -2,19 +2,16 @@ version: '2'
 
 services:
   web:
-    image: xataz/nginx:latest
+    image: nginx:alpine
     restart: always
-    environment:
-      - UID=1000
-      - GID=1000
     volumes:
-      - ./sites-enabled:/nginx/sites-enabled
+      - ./sites-enabled:/etc/nginx/conf.d
       - ./html:/html
     labels:
       - "traefik.docker.network=webproxy"
       - "traefik.enable=true"
       - "traefik.basic.frontend.rule=Host:$SERVER_HOST"
-      - "traefik.basic.port=8080"
+      - "traefik.basic.port=80"
       - "traefik.basic.protocol=http"
 
 networks:
