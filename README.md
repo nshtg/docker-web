@@ -6,6 +6,8 @@ sudo mkdir -p /srv/www                                 \
 && cd /srv/www                                         \
 && git clone https://github.com/nshtg/docker-web proxy \
 && cd /srv/www/proxy                                   \
+&& touch acme.json                                     \
+&& chmod 0600 acme.json                                \
 && cp .env.example .env                                \
 && vim .env
 ```
